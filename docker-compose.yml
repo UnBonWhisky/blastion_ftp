@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  blastion:
+    container_name: blastion_ftp
+    environment:
+      #- Example :
+      # - USERNAME=ubuntu
+      # - PASSWORD=ubuntu
+      - USERNAME=<username you want to use for the login to container ftp>
+      - PASSWORD=<password you want to use for the login to container ftp>
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    image: blastion_ftp:latest
+    hostname: <hostname you want for the honeypot in FTP>
+    ports:
+      - 0.0.0.0:21:21
+      - 0.0.0.0:30000-30100:30000-30100
+    restart: unless-stopped
+    volumes:
+      - "/path/to/container/homedir:/home/<username you have set on top>"
