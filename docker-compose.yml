@@ -11,7 +11,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Paris
-    image: blastion_ftp:latest
+    image: unbonwhisky/blastion_ftp:latest
     hostname: <hostname you want for the honeypot in FTP>
     ports:
       - 0.0.0.0:21:21
